@@ -71,7 +71,7 @@ class JobCard extends StatelessWidget {
                 ),
                 const Row(
                   children: [
-                    Text("Dealine : ",
+                    Text("Deadline : ",
                         style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
@@ -86,9 +86,6 @@ class JobCard extends StatelessWidget {
               ],
             ),
           ),
-          // const SizedBox(
-          //   height: 20,
-          // ),
           const Divider(
             thickness: 0.5,
             color: Colors.grey,

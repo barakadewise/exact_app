@@ -1,6 +1,9 @@
+import 'package:exactapp/pages/categories/categories_page.dart';
+import 'package:exactapp/pages/employers/employer_page.dart';
+import 'package:exactapp/pages/post/post_job.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'home_page.dart'; // Import the earlier HomePage with TabView
+import 'home/home_page.dart'; // Import the earlier HomePage with TabView
 
 class NavigationPage extends StatefulWidget {
   const NavigationPage({super.key});
@@ -102,48 +105,6 @@ class _NavigationPageState extends State<NavigationPage> {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class CategoriesPage extends StatelessWidget {
-  const CategoriesPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'Categories Page',
-        style: TextStyle(fontSize: 18),
-      ),
-    );
-  }
-}
-
-class EmployersPage extends StatelessWidget {
-  const EmployersPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'Employers Page',
-        style: TextStyle(fontSize: 18),
-      ),
-    );
-  }
-}
-
-class PostJobPage extends StatelessWidget {
-  const PostJobPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'Post Job Page',
-        style: TextStyle(fontSize: 18),
       ),
     );
   }

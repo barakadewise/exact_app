@@ -1,5 +1,5 @@
-import 'package:exactapp/pages/components/featured_candidates_card.dart';
-import 'package:exactapp/pages/components/job_card.dart';
+import 'package:exactapp/pages/home/components/featured_candidates_card.dart';
+import 'package:exactapp/pages/home/components/job_card.dart';
 import 'package:exactapp/utils/size_config.dart';
 import 'package:flutter/material.dart';
 

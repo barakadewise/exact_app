@@ -1,4 +1,4 @@
-import 'package:exactapp/pages/home_page.dart';
+import 'package:exactapp/pages/home/home_page.dart';
 import 'package:exactapp/pages/navagation.dart';
 import 'package:flutter/material.dart';
 
