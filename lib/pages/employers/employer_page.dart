@@ -1,3 +1,5 @@
+import 'package:exactapp/pages/employers/components/employer_card.dart';
+import 'package:exactapp/pages/employers/data/employers_list.dart';
 import 'package:flutter/material.dart';
 
 class EmployersPage extends StatelessWidget {
@@ -5,10 +7,37 @@ class EmployersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'Employers Page',
-        style: TextStyle(fontSize: 18),
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.blueGrey.withOpacity(0.08),
+        title: const Text(
+          'Employers',
+          style: TextStyle(
+              fontSize: 18,
+              color: Color.fromARGB(255, 9, 25, 66),
+              fontWeight: FontWeight.w400),
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+        child: Expanded(
+          child: GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 6,
+              mainAxisSpacing: 8,
+            ),
+            itemCount: employerList.length,
+            itemBuilder: (context, index) {
+              final employer = employerList[index];
+              return EmployerCard(
+                url: employer.imgUrl,
+                name: employer.name,
+              );
+            },
+          ),
+        ),
       ),
     );
   }

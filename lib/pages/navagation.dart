@@ -1,4 +1,4 @@
-import 'package:exactapp/pages/categories/categories_page.dart';
+import 'package:exactapp/pages/categories/job_categories.dart';
 import 'package:exactapp/pages/employers/employer_page.dart';
 import 'package:exactapp/pages/post/post_job.dart';
 import 'package:flutter/material.dart';
@@ -70,7 +70,7 @@ class _NavigationPageState extends State<NavigationPage> {
         },
         children: [
           HomePage(scrollController: _scrollController),
-          const CategoriesPage(),
+          const JobCategoriesPage(),
           const EmployersPage(),
           const PostJobPage(),
         ],
