@@ -1,15 +1,8 @@
 import 'package:exactapp/pages/navagation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart'; 
+import 'package:flutter/services.dart';
 
 void main() {
-  
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      statusBarColor:
-          Color.fromARGB(255, 9, 25, 66), 
-    ),
-  );
   runApp(const MyApp());
 }
 
@@ -22,10 +15,23 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Exactapp',
       theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: Color.fromARGB(255, 9, 25, 66),
+            statusBarIconBrightness: Brightness.light,
+          ),
+        ),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
         useMaterial3: true,
       ),
-      home: const NavigationPage(),
+      home: const AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle(
+          statusBarColor:
+              Color.fromARGB(255, 9, 25, 66), // Ensures style persists
+          statusBarIconBrightness: Brightness.light,
+        ),
+        child: NavigationPage(),
+      ),
     );
   }
 }

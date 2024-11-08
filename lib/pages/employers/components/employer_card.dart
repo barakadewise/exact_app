@@ -12,7 +12,8 @@ class EmployerCard extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           border: Border.all(
-              width: 0.4, color: const Color.fromARGB(255, 9, 25, 66))),
+              width: 0.3,
+              color: const Color.fromARGB(255, 9, 25, 66).withOpacity(0.4))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,

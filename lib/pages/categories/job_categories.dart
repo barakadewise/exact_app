@@ -1,5 +1,6 @@
 import 'package:exactapp/pages/categories/components/category_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class JobCategoriesPage extends StatefulWidget {
   const JobCategoriesPage({super.key});
@@ -26,16 +27,20 @@ class _JobCategoriesPageState extends State<JobCategoriesPage>
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Color.fromARGB(255, 9, 25, 66),
+        statusBarIconBrightness: Brightness.light,
+      ),
+    );
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        toolbarTextStyle: const TextStyle(
-          color: Color.fromARGB(255, 9, 25, 66),
-        ),
         backgroundColor: Colors.blueGrey.withOpacity(0.08),
         title: const Text(
           'Job Categories',
           style: TextStyle(
+              fontSize: 18,
               color: Color.fromARGB(255, 9, 25, 66),
               fontWeight: FontWeight.w400),
         ),
@@ -120,32 +125,35 @@ class _ByJobsTabState extends State<ByJobsTab> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SearchBar(onSearch: filterJobs),
-        ),
-        Expanded(
-          child: GridView.builder(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        children: [
+          Padding(
             padding: const EdgeInsets.all(8.0),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 3.0,
-              mainAxisSpacing: 1.0,
-              childAspectRatio: 2.5,
-            ),
-            itemCount: filteredJobs.length,
-            itemBuilder: (context, index) {
-              final job = filteredJobs[index];
-              return CategoryCard(
-                name: job['name'],
-                count: '${job['count']} Jobs',
-              );
-            },
+            child: SearchBar(onSearch: filterJobs),
           ),
-        ),
-      ],
+          Expanded(
+            child: GridView.builder(
+              padding: const EdgeInsets.all(8.0),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 3.0,
+                mainAxisSpacing: 1.0,
+                childAspectRatio: 2.5,
+              ),
+              itemCount: filteredJobs.length,
+              itemBuilder: (context, index) {
+                final job = filteredJobs[index];
+                return CategoryCard(
+                  name: job['name'],
+                  count: '${job['count']} Jobs',
+                );
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

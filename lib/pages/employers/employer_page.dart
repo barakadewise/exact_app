@@ -9,8 +9,8 @@ class EmployersPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
         backgroundColor: Colors.blueGrey.withOpacity(0.08),
+        centerTitle: true,
         title: const Text(
           'Employers',
           style: TextStyle(
@@ -20,23 +20,27 @@ class EmployersPage extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-        child: Expanded(
-          child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 6,
-              mainAxisSpacing: 8,
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        child: Column(
+          children: [
+            Expanded(
+              child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 6,
+                  mainAxisSpacing: 8,
+                ),
+                itemCount: employerList.length,
+                itemBuilder: (context, index) {
+                  final employer = employerList[index];
+                  return EmployerCard(
+                    url: employer.imgUrl,
+                    name: employer.name,
+                  );
+                },
+              ),
             ),
-            itemCount: employerList.length,
-            itemBuilder: (context, index) {
-              final employer = employerList[index];
-              return EmployerCard(
-                url: employer.imgUrl,
-                name: employer.name,
-              );
-            },
-          ),
+          ],
         ),
       ),
     );

@@ -3,7 +3,8 @@ import 'package:exactapp/pages/employers/employer_page.dart';
 import 'package:exactapp/pages/post/post_job.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'home/home_page.dart'; // Import the earlier HomePage with TabView
+import 'package:flutter/services.dart';
+import 'home/home_page.dart';
 
 class NavigationPage extends StatefulWidget {
   const NavigationPage({super.key});
@@ -60,6 +61,8 @@ class _NavigationPageState extends State<NavigationPage> {
 
   @override
   Widget build(BuildContext context) {
+   
+
     return Scaffold(
       body: PageView(
         controller: _pageController,

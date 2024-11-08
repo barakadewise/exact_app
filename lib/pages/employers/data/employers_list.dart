@@ -19,8 +19,7 @@ List<Employer> employerList = [
   const Employer(
       name: "Tanzanian Children's Fund (TCF)", imgUrl: 'assets/images/tcf.png'),
   const Employer(
-      name:
-          "Dr. Salim Ahmed Salim Center for Foreign Relation (Chuo cha Diplomasia)",
+      name: "Dr. Salim Ahmed Salim Center for Foreign Relation",
       imgUrl: "assets/images/ahamed_college.jpg"),
   const Employer(
       name: "Tanzania Bureau of Standards (TBS)",
