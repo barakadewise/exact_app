@@ -1,12 +1,14 @@
 import 'package:exactapp/pages/home/components/featured_candidates_card.dart';
 import 'package:exactapp/pages/home/components/job_card.dart';
 import 'package:exactapp/utils/size_config.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'data/dummy_user_list.dart';
 
 class HomePage extends StatelessWidget {
   final ScrollController scrollController;
+
   const HomePage({super.key, required this.scrollController});
 
   @override
@@ -14,56 +16,155 @@ class HomePage extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(SizeConfig.heightSize(context, 0.18)),
-          child: AppBar(
-            automaticallyImplyLeading: false,
-            backgroundColor: Colors.blueGrey.withOpacity(0.08),
-            leading: Padding(
-              padding: const EdgeInsets.all(6),
-              child: ClipRRect(
-                child: Image.asset(
-                  'assets/images/e_logo.png',
-                  height: 100,
-                  width: 100,
+        body: Column(
+          children: [
+            Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.blueGrey.withOpacity(0.08),
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
                 ),
               ),
-            ),
-            actions: [
-              Padding(
-                padding: const EdgeInsets.only(right: 10),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 25),
                 child: Column(
                   children: [
-                    ClipRRect(
-                      child: Image.asset(
-                        'assets/images/logo.png',
-                        height: 40,
-                        width: 40,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(
+                            height: 50,
+                            child: Image.asset(
+                              'assets/images/e_logo.png',
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                          // Welcome message and user logo
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                height: 40,
+                                width: 40,
+                                child: Image.asset(
+                                  'assets/images/user.png',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              const Text(
+                                "Welcome back",
+                                style: TextStyle(
+                                    fontSize: 12, color: Colors.black),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                CupertinoIcons.check_mark_circled,
+                                color: Colors.orange,
+                              ),
+                              Text(
+                                "1353",
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color.fromARGB(255, 9, 25, 66)),
+                              ),
+                              Text("Recruited with us",
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w300,
+                                      color: Color.fromARGB(255, 9, 25, 66)))
+                            ],
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(CupertinoIcons.check_mark_circled,
+                                  color: Colors.orange),
+                              Text(
+                                "1353",
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color.fromARGB(255, 9, 25, 66)),
+                              ),
+                              Text("Job Seekers",
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w300,
+                                      color: Color.fromARGB(255, 9, 25, 66)))
+                            ],
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                CupertinoIcons.check_mark_circled,
+                                color: Colors.orange,
+                              ),
+                              Text(
+                                "1353",
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color.fromARGB(255, 9, 25, 66)),
+                              ),
+                              Text("Job post",
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w300,
+                                      color: Color.fromARGB(255, 9, 25, 66)))
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(top: 10),
+                      child: TabBar(
+                        labelColor: Color.fromARGB(255, 9, 25, 66),
+                        unselectedLabelColor: Colors.grey,
+                        indicator: UnderlineTabIndicator(
+                          borderSide:
+                              BorderSide(color: Color.fromARGB(255, 9, 25, 66)),
+                          insets: EdgeInsets.symmetric(horizontal: 16.0),
+                        ),
+                        tabs: [
+                          Tab(text: 'All Jobs'),
+                          Tab(text: 'Featured Candidates'),
+                        ],
                       ),
                     ),
                   ],
                 ),
               ),
-            ],
-            bottom: const TabBar(
-              labelColor: Color.fromARGB(255, 9, 25, 66),
-              unselectedLabelColor: Colors.grey,
-              indicator: UnderlineTabIndicator(
-                borderSide: BorderSide(color: Color.fromARGB(255, 9, 25, 66)),
-                insets: EdgeInsets.symmetric(horizontal: 16.0),
-              ),
-              tabs: [
-                Tab(text: 'All Jobs'),
-                Tab(text: 'Featured Candidates'),
-              ],
             ),
-          ),
-        ),
-        body: TabBarView(
-          children: [
-            JobCardView(scrollController: scrollController),
-            FeatureCandidates(
-              scrollController: scrollController,
+            // Body content (TabBarView)
+            Expanded(
+              child: TabBarView(
+                children: [
+                  JobCardView(scrollController: scrollController),
+                  FeatureCandidates(scrollController: scrollController),
+                ],
+              ),
             ),
           ],
         ),

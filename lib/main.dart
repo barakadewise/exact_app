@@ -1,8 +1,15 @@
-import 'package:exactapp/pages/home/home_page.dart';
 import 'package:exactapp/pages/navagation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart'; 
 
 void main() {
+  
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor:
+          Color.fromARGB(255, 9, 25, 66), 
+    ),
+  );
   runApp(const MyApp());
 }
 
@@ -13,11 +20,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-        title: 'Exactapp',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
-          useMaterial3: true,
-        ),
-        home: const NavigationPage());
+      title: 'Exactapp',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
+        useMaterial3: true,
+      ),
+      home: const NavigationPage(),
+    );
   }
 }
